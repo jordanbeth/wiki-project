@@ -1,0 +1,7 @@
+<%if @article%>
+  <h4 style="color:red;">Ideas</h4>
+  <%@article.each do |article|%>
+    - <a id="article-item" href="/users/<%=@user.id%>/articles/<%=article.id%>"><%=article.title%></a><br>
+  <%end%>
+</div>
+<%end%>
