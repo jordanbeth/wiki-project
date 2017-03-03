@@ -1,7 +1,7 @@
 post "/users/:id/articles" do
   @user = current_user
   @idea = params[:idea]
-  if !@idea.empty?
+  if @idea.empty? == false
     @title = Wikipedia.find(@idea).title
     @url = Wikipedia.find(@idea).fullurl
     @article = Article.new(idea: @idea, title: @title, url: @url, user_id: params[:id])
@@ -12,8 +12,8 @@ post "/users/:id/articles" do
     redirect "/users/#{params[:id]}"
     end
   else
-    @errors = ["You got to put something!"]
-    erb :"/users/index"
+   # @errors = ["You got to put something!"]
+    redirect "/users/#{@user.id}"
   end
 end
 
@@ -22,7 +22,11 @@ get "/users/:user_id/articles/:id" do
   @this_article = Article.find_by(id: article_id)
   @full_text = Wikipedia.find(@this_article.idea).text
   @user = User.find_by(id: params[:user_id])
-  erb :"/articles/show"
+  if request.xhr?
+    erb :"/articles/_front_show", layout: false, locals: {this_article: @this_article, full_text: @full_text}
+  else
+    erb :"/articles/show"
+  end
 end
 
 delete "/articles/:id" do

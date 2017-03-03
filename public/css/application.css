@@ -1,3 +1,19 @@
+
+
+.login-form {
+  text-align: center;
+  vertical-align: center;
+  margin-top: 10px;
+}
+
+.login-title{
+  padding-top: 100px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+
+
 /*
 * Skeleton V2.0.4
 * Copyright 2014, Dave Gamache
