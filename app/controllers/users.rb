@@ -30,8 +30,9 @@ post "/login" do
 end
 
 get "/users/:id" do
-  @user = User.find_by(id: params[:id])
-  @article = Article.where("user_id = '#{@user.id}'")
+  # @user = User.find_by(id: params[:id])
+  @user = current_user
+  @articles = Article.where(:user_id => params[:id])
   erb :"/users/index"
 end
 

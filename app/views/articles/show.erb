@@ -1,5 +1,3 @@
 <a href="/users/<%=@user.id%>">home</a>
 
-<h1><%=@article.title%></h1>
-
-<p><%=  @full_text %></p>
+<%=erb :"/articles/_front_show", locals: {this_article: @this_article, full_text: @full_text} %>
