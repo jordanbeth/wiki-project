@@ -1,5 +1,5 @@
 <h3 style="text-align:center;margin-left:60px;">Welcome, <%=@user.username.capitalize%>!</h3>
-<span id="article-list" style="float:right;margin-right:50px;"><%=erb :"/users/_ideas"%></span>
+<span id="article-list" style="float:right;margin-right:50px;"><%=erb :"users/_ideas", locals: {user: @user, articles: @articles}%></span>
 <h4 style="margin-left:30px;color:blue;">Input</h4>
 <form style="margin-left:30px;"  class="wikipedia-page" action="/users/<%=@user.id%>/articles" method="post">
   <input type="text" name="idea" placeholder="Give me an idea?"><br>

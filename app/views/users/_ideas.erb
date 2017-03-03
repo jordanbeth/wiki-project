@@ -1,7 +1,7 @@
-<%if @article%>
+<%if articles%>
   <h4 style="color:red;">Ideas</h4>
-  <%@article.each do |article|%>
-    - <a id="article-item" href="/users/<%=@user.id%>/articles/<%=article.id%>"><%=article.title%></a><br>
+  <%articles.each do |article|%>
+    - <a id="article-item" href="/users/<%=user.id%>/articles/<%=article.id%>"><%=article.title%></a>
+    <form action="/articles/<%=article.id%>" method="post"><input type="hidden" name="_method" value="DELETE"><input type="submit" name="Submit" value="Delete"></form><br>
   <%end%>
-</div>
 <%end%>

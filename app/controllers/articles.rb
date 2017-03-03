@@ -17,9 +17,16 @@ post "/users/:id/articles" do
   end
 end
 
-get "/users/:user_id/articles/:article_id" do
+get "/users/:user_id/articles/:id" do
+  article_id = params[:id].to_i
+  @this_article = Article.find_by(id: article_id)
+  @full_text = Wikipedia.find(@this_article.idea).text
   @user = User.find_by(id: params[:user_id])
-  @article = Article.find_by(id: params[:article_id])
-  @full_text = Wikipedia.find(@article.idea).text
   erb :"/articles/show"
+end
+
+delete "/articles/:id" do
+  @article = Article.find_by(id: params[:id])
+  @article.destroy
+  redirect "/users/#{current_user.id}"
 end
