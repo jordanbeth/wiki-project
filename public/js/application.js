@@ -27,5 +27,7 @@ $(document).ready(function () {
     $("div#drop-down-menu").addClass("open")
   })
 
-
+  $("button#idea-list").dblclick(function(){
+    $("div#drop-down-menu").hide();
+  })
 });

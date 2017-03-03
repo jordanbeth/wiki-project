@@ -23,20 +23,24 @@ a.idea-item{
 }
 
 div.styled{
-  display: inline;
+  position: relative;
+  margin: auto;
+  width: 65%;
 }
 
 h1#header-styling{
   color: blue;
-  margin-left: 20px;
-}
 
+}
+/*
 p#body-styling{
   color: grey;
   font-size: 16px;
   font-family: "Arial";
   display: inline;
-}
+  margin: auto;
+  width: 50%;
+}*/
 /*
 * Skeleton V2.0.4
 * Copyright 2014, Dave Gamache
