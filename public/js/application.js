@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+  $("div#drop-down-menu").hide();
+
   $("span#article-list").on("click", "a.inactive-link", function(event){
     event.preventDefault();
     var url = $(this).attr("href");
@@ -18,6 +21,11 @@ $(document).ready(function () {
     $(this).removeClass("active-link").addClass("inactive-link");
     $("div#new-article-appear").empty()
   });
+
+  $("button#idea-list").click(function(){
+    $("div#drop-down-menu").show();
+    $("div#drop-down-menu").addClass("open")
+  })
 
 
 });

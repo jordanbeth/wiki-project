@@ -1,7 +1,11 @@
-<%if articles%>
-  <h4 style="color:red;">Ideas</h4>
-  <%articles.each do |article|%>
-    <a class="inactive-link" href="/users/<%=user.id%>/articles/<%=article.id%>"><%=article.title%></a>
-    <form id="article-delete-form" action="/articles/<%=article.id%>" method="post"><input type="hidden" name="_method" value="DELETE"><input type="submit" name="Submit" value="Delete"></form><br>
+<button type="button" id="idea-list" style="color:red;"><div style="font-size:20px;">Ideas</div></button>
+<div id="drop-down-menu">
+  <ol>
+  <%if articles%>
+    <%articles.each do |article|%>
+      <li><a class="inactive-link idea-item" href="/users/<%=user.id%>/articles/<%=article.id%>"><%=article.title%></a></li>
+      <form id="article-delete-form" action="/articles/<%=article.id%>" method="post"><input type="hidden" name="_method" value="DELETE"><input type="submit" name="Submit" value="Delete"></form>
+    <%end%>
   <%end%>
-<%end%>
+</ol>
+</div>
