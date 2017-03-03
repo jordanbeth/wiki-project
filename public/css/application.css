@@ -1,4 +1,9 @@
-
+h1#big-title-logo{
+  margin-left: 20px;
+  padding-top: 50px;
+  letter-spacing: 20px;
+  font-size: 5em;
+}
 
 .login-form {
   text-align: center;
