@@ -31,7 +31,7 @@ end
 
 get "/users/:id" do
   @user = User.find_by(id: params[:id])
-  @article = Article.where("user_id = '#{@user.id}'")
+  @article = Article.where(:user_id => @user.id)
   erb :"/users/index"
 end
 
